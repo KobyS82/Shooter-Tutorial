@@ -8,5 +8,12 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if (Input.is_action_pressed("Left")):
-		
+	pass
+
+
+func _on_area_2d_body_entered(_body):
+	print("entered")
+
+
+func _on_area_2d_body_exited(_body):
+	print("exited")
