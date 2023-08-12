@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-signal laser_shot
-signal grenade_shot
+signal laser_shot(pos)
+signal grenade_shot(pos)
 
 
 var can_laser: bool = true
@@ -16,15 +16,20 @@ func _process(_delta):
 	
 	# Primary action - Laser
 	if Input.is_action_pressed("Primary Action") and can_laser:
-		laser_shot.emit()
+		#randomly select marker for the laser start position
+		var laser_markers = $LaserStartPosition.get_children()
+		var selected_laser = laser_markers[randi() % laser_markers.size()]
 		can_laser = false
 		$Timer.start()
+		#emit pos we selected
+		laser_shot.emit(selected_laser.global_position)
 	
 	# Secondary action - Grenade
 	if Input.is_action_pressed("Secondary Action") and can_grenade:
-		grenade_shot.emit()
+		var pos = $LaserStartPosition/Start.global_position
 		can_grenade = false
 		$GrenadeReloadTimer.start()
+		grenade_shot.emit(pos)
 
 
 func _on_timer_timeout():

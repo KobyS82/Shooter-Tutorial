@@ -9,5 +9,7 @@ script = ExtResource("1_mhclo")
 [node name="Player" parent="." instance=ExtResource("4_ktots")]
 position = Vector2(520, 294)
 
+[node name="Projectiles" type="Node2D" parent="."]
+
 [connection signal="grenade_shot" from="Player" to="." method="_on_player_grenade_shot"]
 [connection signal="laser_shot" from="Player" to="." method="_on_player_laser_shot"]
