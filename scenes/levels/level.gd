@@ -17,3 +17,11 @@ func _on_area_2d_body_entered(_body):
 
 func _on_area_2d_body_exited(_body):
 	print("exited")
+
+
+func _on_player_laser_shot():
+	print("laser shot")
+
+
+func _on_player_grenade_shot():
+	print("grenade shot")
