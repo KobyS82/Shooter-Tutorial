@@ -1,10 +1,31 @@
-[gd_scene load_steps=4 format=3 uid="uid://btht1nxr83itn"]
+[gd_scene load_steps=8 format=3 uid="uid://btht1nxr83itn"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_1hj5w"]
 [ext_resource type="Texture2D" uid="uid://bam01fkuykxeh" path="res://resources/graphics/player/player.png" id="1_oj76d"]
+[ext_resource type="Texture2D" uid="uid://x3pv567bt6hl" path="res://resources/graphics/decals/white.png" id="3_x0iyg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m4abt"]
 radius = 70.4557
+
+[sub_resource type="Gradient" id="Gradient_sh53d"]
+offsets = PackedFloat32Array(0.00369004, 0.527675)
+colors = PackedColorArray(1.44392e-06, 0.310014, 0.780004, 1, 0, 0.686275, 0.85098, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0p8lt"]
+gradient = SubResource("Gradient_sh53d")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ygc8h"]
+emission_shape = 1
+emission_sphere_radius = 1.79
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 750.0
+initial_velocity_max = 1000.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 0.5
+color = Color(0, 0.0862745, 0.47451, 0.65098)
+color_ramp = SubResource("GradientTexture1D_0p8lt")
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 31
@@ -17,6 +38,14 @@ texture = ExtResource("1_oj76d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_m4abt")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(124, 13)
+amount = 15
+process_material = SubResource("ParticleProcessMaterial_ygc8h")
+texture = ExtResource("3_x0iyg")
+lifetime = 0.12
+one_shot = true
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
