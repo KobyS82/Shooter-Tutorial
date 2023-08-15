@@ -90,7 +90,7 @@ position = Vector2(1675, 689)
 texture = ExtResource("6_kif0r")
 
 [node name="House" parent="Ground" instance=ExtResource("9_x1o2a")]
-position = Vector2(-2503, 3014)
+position = Vector2(-2537, 3051)
 rotation = 4.41743
 
 [node name="SteamVent" parent="Ground" instance=ExtResource("10_n357i")]
@@ -107,6 +107,10 @@ zoom = Vector2(0.6, 0.6)
 position_smoothing_enabled = true
 
 [node name="Projectiles" type="Node2D" parent="."]
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+color = Color(0.0588235, 0.0588235, 0.0588235, 1)
+blend_mode = 1
 
 [connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
 [connection signal="grenade_shot" from="Player" to="." method="_on_player_grenade_shot"]
