@@ -91,7 +91,7 @@ position = Vector2(1675, 689)
 texture = ExtResource("6_kif0r")
 
 [node name="House" parent="Ground" instance=ExtResource("9_x1o2a")]
-position = Vector2(-2537, 3051)
+position = Vector2(-2569, 3025)
 rotation = 4.41743
 
 [node name="SteamVent" parent="Ground" instance=ExtResource("10_n357i")]
@@ -107,7 +107,7 @@ position = Vector2(491, -552)
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("4_ktots")]
-position = Vector2(520, 294)
+position = Vector2(687, 698)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(0.6, 0.6)
@@ -120,6 +120,9 @@ metadata/_edit_lock_ = true
 color = Color(0.0588235, 0.0588235, 0.0588235, 1)
 blend_mode = 1
 
+[connection signal="body_exited" from="Ground/House" to="Ground/House" method="_on_body_exited"]
+[connection signal="player_entered" from="Ground/House" to="." method="_on_house_player_entered"]
+[connection signal="player_left" from="Ground/House" to="." method="_on_house_player_left"]
 [connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
 [connection signal="grenade_shot" from="Player" to="." method="_on_player_grenade_shot"]
 [connection signal="laser_shot" from="Player" to="." method="_on_player_laser_shot"]

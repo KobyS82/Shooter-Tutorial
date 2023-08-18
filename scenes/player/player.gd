@@ -6,12 +6,15 @@ signal grenade_shot(pos, direction)
 
 var can_laser: bool = true
 var can_grenade: bool = true
+
+@export var max_speed: int = 500
+var speed: int = max_speed
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	#Input
 	var direction = Input.get_vector("Left", "Right", "Up", "Down")
-	velocity = direction * 500
+	velocity = direction * speed
 	move_and_slide()
 	
 	# Rotate 
