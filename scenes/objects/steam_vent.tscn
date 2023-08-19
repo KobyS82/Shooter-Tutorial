@@ -7,8 +7,9 @@
 radius = 88.0057
 
 [sub_resource type="Gradient" id="Gradient_uphwx"]
+interpolation_mode = 2
 offsets = PackedFloat32Array(0, 0.99631)
-colors = PackedColorArray(0.899258, 0.899258, 0.899258, 1, 0.580392, 0.580392, 0.580392, 0.192157)
+colors = PackedColorArray(0.898039, 0.898039, 0.898039, 1, 0.580392, 0.580392, 0.580392, 0.52549)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_kqit6"]
 gradient = SubResource("Gradient_uphwx")
@@ -33,7 +34,7 @@ shape = SubResource("CircleShape2D_112ka")
 texture = ExtResource("1_3ew78")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-amount = 150
+amount = 200
 process_material = SubResource("ParticleProcessMaterial_h23ks")
 texture = ExtResource("2_kkior")
 lifetime = 1.5
