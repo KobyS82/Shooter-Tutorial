@@ -1,111 +1,12 @@
-[gd_scene load_steps=18 format=3 uid="uid://botrn4244urhs"]
+[gd_scene load_steps=3 format=3 uid="uid://botrn4244urhs"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_mhclo"]
-[ext_resource type="Texture2D" uid="uid://bqykvsmciamqi" path="res://resources/graphics/ground/stones.png" id="2_tx8rc"]
-[ext_resource type="Texture2D" uid="uid://dadmd36jj8ky4" path="res://resources/graphics/decals/dirt_patch.png" id="3_tisf6"]
-[ext_resource type="PackedScene" uid="uid://bp14ynq0a31mi" path="res://scenes/objects/gate.tscn" id="3_xlt7d"]
-[ext_resource type="Texture2D" uid="uid://b2htgmwjf2k5d" path="res://resources/graphics/decals/moss/moss_2.png" id="4_0yvjw"]
 [ext_resource type="PackedScene" uid="uid://btht1nxr83itn" path="res://scenes/player/player.tscn" id="4_ktots"]
-[ext_resource type="Texture2D" uid="uid://cntvm42sjqjqq" path="res://resources/graphics/decals/moss/moss_1.png" id="5_4i2tl"]
-[ext_resource type="Texture2D" uid="uid://cayexmhhmivm3" path="res://resources/graphics/decals/moss/moss_4.png" id="6_kif0r"]
-[ext_resource type="Texture2D" uid="uid://bnedqdhvha6i2" path="res://resources/graphics/tilesets/outside_walls.png" id="7_iewsj"]
-[ext_resource type="Texture2D" uid="uid://bivhnkdamqd8a" path="res://resources/graphics/tilesets/soil.png" id="8_aaw31"]
-[ext_resource type="PackedScene" uid="uid://cfr4tqm3kw24x" path="res://scenes/houses/house.tscn" id="9_x1o2a"]
-[ext_resource type="PackedScene" uid="uid://nvlbhuf7yh0k" path="res://scenes/objects/steam_vent.tscn" id="10_n357i"]
-[ext_resource type="PackedScene" uid="uid://ikrub3cf7k4v" path="res://scenes/objects/lignt_fan_animation.tscn" id="11_vk65c"]
-[ext_resource type="PackedScene" uid="uid://cpgigofceb2iy" path="res://scenes/enemies/Drone.tscn" id="14_a40yw"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uh3gi"]
-resource_name = "walls"
-texture = ExtResource("7_iewsj")
-texture_region_size = Vector2i(390, 390)
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-0:3/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ed8tx"]
-resource_name = "soil"
-texture = ExtResource("8_aaw31")
-texture_region_size = Vector2i(390, 390)
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_drnvl"]
-tile_size = Vector2i(390, 390)
-sources/0 = SubResource("TileSetAtlasSource_uh3gi")
-sources/1 = SubResource("TileSetAtlasSource_ed8tx")
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_mhclo")
 
 [node name="Ground" type="Node2D" parent="."]
-
-[node name="Soil" type="Sprite2D" parent="Ground"]
-texture_repeat = 2
-position = Vector2(522, 296)
-texture = ExtResource("2_tx8rc")
-region_enabled = true
-region_rect = Rect2(-5500, -3000, 16000, 10000)
-
-[node name="Decoration" type="Sprite2D" parent="Ground"]
-modulate = Color(0.85098, 0.803922, 0.627451, 1)
-position = Vector2(-603, 768)
-texture = ExtResource("3_tisf6")
-
-[node name="TileMap" type="TileMap" parent="Ground"]
-tile_set = SubResource("TileSet_drnvl")
-format = 2
-layer_0/name = "Soil"
-layer_0/tile_data = PackedInt32Array(-65541, 1, 0, 65531, 1, 2, 65532, 131073, 2, -65540, 131073, 0, -5, 1, 1, -4, 131073, 1)
-layer_1/name = "Walls"
-layer_1/enabled = true
-layer_1/modulate = Color(1, 1, 1, 1)
-layer_1/y_sort_enabled = false
-layer_1/y_sort_origin = 0
-layer_1/z_index = 0
-layer_1/tile_data = PackedInt32Array(-4, 131072, 0, -5, 65536, 0, -65530, 65536, 2, -131066, 0, 2, -196602, 0, 2, -262138, 0, 1, -65529, 65536, 0, -65528, 131072, 1, 8, 0, 2, 65544, 0, 2, 131080, 0, 2, 196616, 0, 2, -6, 65536, 0, -7, 0, 0, 262152, 0, 3)
-
-[node name="Moss2" type="Sprite2D" parent="Ground"]
-position = Vector2(1601, 432)
-texture = ExtResource("4_0yvjw")
-
-[node name="Moss1" type="Sprite2D" parent="Ground"]
-position = Vector2(1940, 454)
-texture = ExtResource("5_4i2tl")
-
-[node name="Moss4" type="Sprite2D" parent="Ground"]
-position = Vector2(1675, 689)
-texture = ExtResource("6_kif0r")
-
-[node name="House" parent="Ground" instance=ExtResource("9_x1o2a")]
-position = Vector2(-2569, 3025)
-rotation = 4.41743
-
-[node name="SteamVent" parent="Ground" instance=ExtResource("10_n357i")]
-position = Vector2(-135, 333)
-
-[node name="LigntFanAnimation" parent="Ground" instance=ExtResource("11_vk65c")]
-position = Vector2(-1612, 1444)
-autoplay = "default"
-frame_progress = 0.880135
-
-[node name="Gate" parent="." instance=ExtResource("3_xlt7d")]
-position = Vector2(491, -552)
-metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("4_ktots")]
 position = Vector2(687, 698)
@@ -121,12 +22,5 @@ metadata/_edit_lock_ = true
 color = Color(0.0588235, 0.0588235, 0.0588235, 1)
 blend_mode = 1
 
-[node name="Car" parent="." instance=ExtResource("14_a40yw")]
-position = Vector2(239, 908)
-
-[connection signal="body_exited" from="Ground/House" to="Ground/House" method="_on_body_exited"]
-[connection signal="player_entered" from="Ground/House" to="." method="_on_house_player_entered"]
-[connection signal="player_left" from="Ground/House" to="." method="_on_house_player_left"]
-[connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
 [connection signal="grenade_shot" from="Player" to="." method="_on_player_grenade_shot"]
 [connection signal="laser_shot" from="Player" to="." method="_on_player_laser_shot"]
