@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://4aavrfvh26v0"]
+[gd_scene load_steps=20 format=3 uid="uid://4aavrfvh26v0"]
 
 [ext_resource type="PackedScene" uid="uid://botrn4244urhs" path="res://scenes/levels/level.tscn" id="1_wf4cv"]
 [ext_resource type="Texture2D" uid="uid://bqykvsmciamqi" path="res://resources/graphics/ground/stones.png" id="2_a8a7m"]
@@ -13,7 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://cfr4tqm3kw24x" path="res://scenes/houses/house.tscn" id="9_idllv"]
 [ext_resource type="PackedScene" uid="uid://nvlbhuf7yh0k" path="res://scenes/objects/steam_vent.tscn" id="10_3lejj"]
 [ext_resource type="PackedScene" uid="uid://ikrub3cf7k4v" path="res://scenes/objects/lignt_fan_animation.tscn" id="11_gtact"]
-[ext_resource type="PackedScene" uid="uid://cpgigofceb2iy" path="res://scenes/enemies/Drone.tscn" id="13_sc6fl"]
+[ext_resource type="PackedScene" uid="uid://cpgigofceb2iy" path="res://scenes/enemies/drone.tscn" id="13_sc6fl"]
+[ext_resource type="PackedScene" uid="uid://c12kgyaqk01sd" path="res://scenes/container/toilet.tscn" id="15_sc4ir"]
+[ext_resource type="PackedScene" uid="uid://c58aiud1mhmii" path="res://scenes/container/crate.tscn" id="16_uhin7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uh3gi"]
 resource_name = "walls"
@@ -106,6 +108,12 @@ position = Vector2(702, -590)
 
 [node name="Drone" parent="." index="5" instance=ExtResource("13_sc6fl")]
 position = Vector2(165, 962)
+
+[node name="Toilet" parent="." index="6" instance=ExtResource("15_sc4ir")]
+position = Vector2(923, 929)
+
+[node name="Crate" parent="Toilet" index="2" instance=ExtResource("16_uhin7")]
+position = Vector2(218, -258)
 
 [connection signal="body_exited" from="Ground/House" to="Ground/House" method="_on_body_exited"]
 [connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
