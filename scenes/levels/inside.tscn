@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://cstu122c88v6v"]
+[gd_scene load_steps=14 format=3 uid="uid://cstu122c88v6v"]
 
 [ext_resource type="PackedScene" uid="uid://botrn4244urhs" path="res://scenes/levels/level.tscn" id="1_q1bew"]
 [ext_resource type="Script" path="res://scenes/levels/inside.gd" id="2_5n3rt"]
 [ext_resource type="Texture2D" uid="uid://cn57bo7hbtsmo" path="res://resources/graphics/ground/dirt.png" id="2_iq0ij"]
 [ext_resource type="TileSet" uid="uid://beiyks2c7cfty" path="res://scenes/levels/house.tres" id="2_k8yyr"]
+[ext_resource type="PackedScene" uid="uid://4aavrfvh26v0" path="res://scenes/levels/outside.tscn" id="3_lrb8g"]
 [ext_resource type="PackedScene" uid="uid://ikrub3cf7k4v" path="res://scenes/objects/lignt_fan_animation.tscn" id="4_18iiy"]
 [ext_resource type="Texture2D" uid="uid://be4aibamsnrl2" path="res://resources/graphics/lights/overlays/infrastructure.png" id="4_30dvt"]
 [ext_resource type="PackedScene" uid="uid://bjsndr6bthufo" path="res://scenes/objects/wall_lamp.tscn" id="4_qem45"]
@@ -17,6 +18,7 @@ size = Vector2(224, 747)
 
 [node name="Inside" instance=ExtResource("1_q1bew")]
 script = ExtResource("2_5n3rt")
+outside_level_scene = ExtResource("3_lrb8g")
 
 [node name="Dirt" type="Sprite2D" parent="Ground" index="0"]
 texture_repeat = 2
@@ -246,6 +248,7 @@ blend_mode = 1
 metadata/_edit_lock_ = true
 
 [node name="ExitGateArea" type="Area2D" parent="." index="5"]
+collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitGateArea" index="0"]
 position = Vector2(1268, -1169)

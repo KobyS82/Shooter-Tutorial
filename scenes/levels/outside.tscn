@@ -105,6 +105,10 @@ frame_progress = 0.880135
 [node name="Gate" parent="." index="1" instance=ExtResource("2_ww8uc")]
 position = Vector2(702, -590)
 
+[node name="Player" parent="." index="3"]
+position = Vector2(750, 334)
+metadata/_edit_group_ = true
+
 [node name="Drone" parent="." index="5" instance=ExtResource("13_sc6fl")]
 position = Vector2(165, 962)
 
@@ -115,7 +119,7 @@ position = Vector2(1141, 671)
 position = Vector2(923, 929)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="." index="8"]
-color = Color(0.0588235, 0.0588235, 0.0588235, 1)
+color = Color(0.054902, 0.054902, 0.054902, 1)
 blend_mode = 1
 
 [connection signal="body_exited" from="Ground/House" to="Ground/House" method="_on_body_exited"]
