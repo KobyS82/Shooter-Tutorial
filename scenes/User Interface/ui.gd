@@ -17,11 +17,9 @@ func update_laser_text():
 	laser_label.text = str(Globals.laser_amount)
 	update_color(Globals.laser_amount, laser_label, laser_icon)
 
-
 func update_grenade_text():
 	grenade_label.text = str(Globals.grenade_amount)
 	update_color(Globals.grenade_amount, grenade_label, grenade_icon)
-	
 
 func update_color(amount: int, label: Label, icon: TextureRect) -> void:
 	if amount == 0:
