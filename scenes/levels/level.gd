@@ -12,6 +12,7 @@ func _on_player_laser_shot(pos, direction):
 	laser.direction = direction
 	$Projectiles.add_child(laser)
 	print("laser shot")
+	$UI.update_laser_text()
 
 
 func _on_player_grenade_shot(pos, direction):
@@ -20,6 +21,7 @@ func _on_player_grenade_shot(pos, direction):
 	grenade.linear_velocity = direction * grenade.speed
 	$Projectiles.add_child(grenade)
 	print("grenade shot")
+	$UI.update_grenade_text()
 
 
 func _on_house_player_entered():
