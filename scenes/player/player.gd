@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 signal laser_shot(pos, direction)
 signal grenade_shot(pos, direction)
-
+signal update_stats
 
 var can_laser: bool = true
 var can_grenade: bool = true
@@ -11,7 +11,6 @@ var can_grenade: bool = true
 var speed: int = max_speed
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	#Input
 	var direction = Input.get_vector("Left", "Right", "Up", "Down")
@@ -41,12 +40,16 @@ func _process(_delta):
 		$GrenadeReloadTimer.start()
 		var pos = $LaserStartPosition/Start.global_position
 		grenade_shot.emit(pos, player_direction)
-		
-
 
 func _on_timer_timeout():
 	can_laser = true
 
-
 func _on_grenade_reload_timer_timeout():
 	can_grenade = true
+
+func add_item(type: String) -> void:
+	if type == 'laser':
+		Globals.laser_amount += 5
+	if type == 'grenade':
+		Globals.grenade_amount += 1
+	update_stats.emit()

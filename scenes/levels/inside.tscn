@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cstu122c88v6v"]
+[gd_scene load_steps=14 format=3 uid="uid://cstu122c88v6v"]
 
 [ext_resource type="PackedScene" uid="uid://botrn4244urhs" path="res://scenes/levels/level.tscn" id="1_q1bew"]
 [ext_resource type="Script" path="res://scenes/levels/inside.gd" id="2_5n3rt"]
@@ -11,12 +11,17 @@
 [ext_resource type="Texture2D" uid="uid://1hfe22mqypbb" path="res://resources/graphics/lights/overlays/lattice.png" id="6_5kqtg"]
 [ext_resource type="Texture2D" uid="uid://coqdm2cotuboh" path="res://resources/graphics/lights/textures/circle.png" id="6_alkvy"]
 [ext_resource type="Texture2D" uid="uid://ciw4ot1600fk3" path="res://resources/graphics/lights/overlays/hole.png" id="7_q6bqj"]
+[ext_resource type="PackedScene" uid="uid://b8karepy0v14l" path="res://scenes/items/item.tscn" id="12_2mgrx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xxejm"]
 size = Vector2(224, 747)
 
 [node name="Inside" instance=ExtResource("1_q1bew")]
 script = ExtResource("2_5n3rt")
+
+[node name="Ground" parent="." index="0"]
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="Dirt" type="Sprite2D" parent="Ground" index="0"]
 texture_repeat = 2
@@ -47,7 +52,7 @@ layer_2/z_index = 0
 layer_2/tile_data = PackedInt32Array(-458755, 1, 8, -655363, 196609, 7, -589827, 65537, 6, -524291, 65537, 6, -458750, 65537, 6, -327678, 327681, 8, -524286, 65537, 7, -458754, 1, 6, -458753, 1, 6, -524288, 1, 6, -524287, 1, 6, -720899, 327681, 6, -655364, 1, 6, -655365, 262145, 7, -131070, 327681, 6, -65534, 131073, 8, -65533, 1, 6, -65532, 65537, 8, -131068, 1, 7, -131067, 1, 6, -131066, 1, 6, -131065, 196609, 8, -131064, 1, 6, -131063, 65537, 7, -196601, 65537, 6, -262137, 1, 7, -262136, 393217, 7, -262135, 262145, 7, -262134, 393217, 7, 2, 65537, 6, 65538, 65537, 6, 131074, 65537, 6, 327682, 327681, 8, 196610, 327681, 8, 327687, 327681, 8, 262151, 65537, 6, 196615, 327681, 6, 131079, 327681, 8, 65543, 1, 7, 65544, 1, 6, 65545, 1, 6, 65546, 393217, 7)
 
 [node name="WallLamp" parent="Ground" index="2" instance=ExtResource("4_qem45")]
-position = Vector2(374, -431)
+position = Vector2(425, -436)
 rotation = 3.14159
 
 [node name="WallLamp3" parent="Ground" index="3" instance=ExtResource("4_qem45")]
@@ -59,7 +64,7 @@ position = Vector2(-81, -4322)
 rotation = 3.14159
 
 [node name="WallLamp2" parent="Ground" index="5" instance=ExtResource("4_qem45")]
-position = Vector2(208, 1993)
+position = Vector2(235, 1974)
 
 [node name="SimpleLight" parent="Ground" index="6" instance=ExtResource("5_6s02p")]
 position = Vector2(-1653, 166)
@@ -126,6 +131,7 @@ texture_scale = 2.0
 
 [node name="Lights" parent="." index="3"]
 metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="Lattice" type="Sprite2D" parent="Lights" index="0"]
 modulate = Color(1, 1, 1, 0.0313726)
@@ -133,7 +139,6 @@ position = Vector2(3789, 1002)
 rotation = 1.5708
 scale = Vector2(2.09305, 2.09305)
 texture = ExtResource("6_5kqtg")
-metadata/_edit_lock_ = true
 
 [node name="Lattice2" type="Sprite2D" parent="Lights" index="1"]
 modulate = Color(1, 1, 1, 0.0313726)
@@ -141,84 +146,72 @@ position = Vector2(3789, 1693)
 rotation = 1.5708
 scale = Vector2(2.09305, 2.09305)
 texture = ExtResource("6_5kqtg")
-metadata/_edit_lock_ = true
 
 [node name="Lattice3" type="Sprite2D" parent="Lights" index="2"]
 modulate = Color(1, 1, 1, 0.0313726)
 position = Vector2(525, 1828)
 scale = Vector2(2.09305, 2.09305)
 texture = ExtResource("6_5kqtg")
-metadata/_edit_lock_ = true
 
 [node name="Lattice4" type="Sprite2D" parent="Lights" index="3"]
 modulate = Color(1, 1, 1, 0.0313726)
 position = Vector2(-223, 1821)
 scale = Vector2(2.09305, 2.09305)
 texture = ExtResource("6_5kqtg")
-metadata/_edit_lock_ = true
 
 [node name="Lattice5" type="Sprite2D" parent="Lights" index="4"]
 modulate = Color(1, 1, 1, 0.0313726)
 position = Vector2(-1107, 1807)
 scale = Vector2(2.09305, 2.09305)
 texture = ExtResource("6_5kqtg")
-metadata/_edit_lock_ = true
 
 [node name="Lattice6" type="Sprite2D" parent="Lights" index="5"]
 modulate = Color(1, 1, 1, 0.0313726)
 position = Vector2(-1291, -2070)
 scale = Vector2(2.09305, 2.09305)
 texture = ExtResource("6_5kqtg")
-metadata/_edit_lock_ = true
 
 [node name="Lattice7" type="Sprite2D" parent="Lights" index="6"]
 modulate = Color(1, 1, 1, 0.0313726)
 position = Vector2(-564, -2070)
 scale = Vector2(2.09305, 2.09305)
 texture = ExtResource("6_5kqtg")
-metadata/_edit_lock_ = true
 
 [node name="Lattice8" type="Sprite2D" parent="Lights" index="7"]
 modulate = Color(1, 1, 1, 0.0313726)
 position = Vector2(241, -2063)
 scale = Vector2(2.09305, 2.09305)
 texture = ExtResource("6_5kqtg")
-metadata/_edit_lock_ = true
 
 [node name="Lattice9" type="Sprite2D" parent="Lights" index="8"]
 modulate = Color(1, 1, 1, 0.0313726)
 position = Vector2(-1219, -220)
 scale = Vector2(2.09305, 2.09305)
 texture = ExtResource("6_5kqtg")
-metadata/_edit_lock_ = true
 
 [node name="Lattice10" type="Sprite2D" parent="Lights" index="9"]
 modulate = Color(1, 1, 1, 0.0313726)
 position = Vector2(-445, -220)
 scale = Vector2(2.09305, 2.09305)
 texture = ExtResource("6_5kqtg")
-metadata/_edit_lock_ = true
 
 [node name="Lattice11" type="Sprite2D" parent="Lights" index="10"]
 modulate = Color(1, 1, 1, 0.0313726)
 position = Vector2(355, -227)
 scale = Vector2(2.09305, 2.09305)
 texture = ExtResource("6_5kqtg")
-metadata/_edit_lock_ = true
 
 [node name="Hole" type="Sprite2D" parent="Lights" index="11"]
 modulate = Color(1, 0.682353, 1, 0.0588235)
 position = Vector2(1453, -3197)
 scale = Vector2(6.4574, 6.4574)
 texture = ExtResource("7_q6bqj")
-metadata/_edit_lock_ = true
 
 [node name="Infrastructure" type="Sprite2D" parent="Lights" index="12"]
 modulate = Color(1, 1, 1, 0.0313726)
 position = Vector2(2699, -1172)
 scale = Vector2(1.684, 11.7071)
 texture = ExtResource("4_30dvt")
-metadata/_edit_lock_ = true
 
 [node name="Infrastructure2" type="Sprite2D" parent="Lights" index="13"]
 modulate = Color(1, 1, 1, 0.0313726)
@@ -226,19 +219,15 @@ position = Vector2(-358.462, 538.664)
 rotation = 1.5708
 scale = Vector2(1.79429, 4.75938)
 texture = ExtResource("4_30dvt")
-metadata/_edit_lock_ = true
 
 [node name="LigntFanAnimation" parent="Lights" index="14" instance=ExtResource("4_18iiy")]
 position = Vector2(2261, -847)
-metadata/_edit_lock_ = true
 
 [node name="LigntFanAnimation2" parent="Lights" index="15" instance=ExtResource("4_18iiy")]
 position = Vector2(323, -36)
-metadata/_edit_lock_ = true
 
 [node name="LigntFanAnimation3" parent="Lights" index="16" instance=ExtResource("4_18iiy")]
 position = Vector2(3176, -3668)
-metadata/_edit_lock_ = true
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="." index="4"]
 color = Color(0.458824, 0.619608, 0.54902, 1)
@@ -251,5 +240,8 @@ collision_layer = 16
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitGateArea" index="0"]
 position = Vector2(1268, -1169)
 shape = SubResource("RectangleShape2D_xxejm")
+
+[node name="Item" parent="." index="7" instance=ExtResource("12_2mgrx")]
+position = Vector2(1954, -1390)
 
 [connection signal="body_entered" from="ExitGateArea" to="." method="_on_exit_gate_area_body_entered"]

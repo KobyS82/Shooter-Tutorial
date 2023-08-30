@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://4aavrfvh26v0"]
+[gd_scene load_steps=21 format=3 uid="uid://4aavrfvh26v0"]
 
 [ext_resource type="PackedScene" uid="uid://botrn4244urhs" path="res://scenes/levels/level.tscn" id="1_wf4cv"]
 [ext_resource type="Texture2D" uid="uid://bqykvsmciamqi" path="res://resources/graphics/ground/stones.png" id="2_a8a7m"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://cpgigofceb2iy" path="res://scenes/enemies/drone.tscn" id="13_sc6fl"]
 [ext_resource type="PackedScene" uid="uid://c12kgyaqk01sd" path="res://scenes/container/toilet.tscn" id="15_sc4ir"]
 [ext_resource type="PackedScene" uid="uid://c58aiud1mhmii" path="res://scenes/container/crate.tscn" id="16_uhin7"]
+[ext_resource type="PackedScene" uid="uid://b8karepy0v14l" path="res://scenes/items/item.tscn" id="17_r2cew"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uh3gi"]
 resource_name = "walls"
@@ -121,6 +122,9 @@ position = Vector2(923, 929)
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="." index="8"]
 color = Color(0.054902, 0.054902, 0.054902, 1)
 blend_mode = 1
+
+[node name="Item" parent="." index="10" instance=ExtResource("17_r2cew")]
+position = Vector2(305, 507)
 
 [connection signal="body_exited" from="Ground/House" to="Ground/House" method="_on_body_exited"]
 [connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
