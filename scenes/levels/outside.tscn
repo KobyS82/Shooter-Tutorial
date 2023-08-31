@@ -53,6 +53,10 @@ sources/1 = SubResource("TileSetAtlasSource_ed8tx")
 [node name="Outside" instance=ExtResource("1_wf4cv")]
 script = ExtResource("2_bt435")
 
+[node name="Gate" parent="." index="1" instance=ExtResource("2_ww8uc")]
+z_index = 1
+position = Vector2(702, -590)
+
 [node name="Soil" type="Sprite2D" parent="Ground" index="0"]
 texture_repeat = 2
 position = Vector2(522, 296)
@@ -101,13 +105,6 @@ position = Vector2(-135, 333)
 position = Vector2(-1612, 1444)
 frame_progress = 0.880135
 
-[node name="Gate" parent="." index="1" instance=ExtResource("2_ww8uc")]
-position = Vector2(702, -590)
-
-[node name="Player" parent="." index="4"]
-position = Vector2(750, 334)
-metadata/_edit_group_ = true
-
 [node name="Drone" parent="." index="5" instance=ExtResource("13_sc6fl")]
 position = Vector2(165, 962)
 
@@ -115,10 +112,15 @@ position = Vector2(165, 962)
 color = Color(0.054902, 0.054902, 0.054902, 1)
 blend_mode = 1
 
+[node name="Player" parent="." index="7"]
+z_index = 2
+position = Vector2(750, 334)
+metadata/_edit_group_ = true
+
 [node name="Item" parent="." index="8" instance=ExtResource("17_r2cew")]
 position = Vector2(305, 507)
 
+[connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
 [connection signal="body_exited" from="Ground/House" to="Ground/House" method="_on_body_exited"]
 [connection signal="player_entered" from="Ground/House" to="." method="_on_house_player_entered"]
 [connection signal="player_left" from="Ground/House" to="." method="_on_house_player_left"]
-[connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]

@@ -9,8 +9,8 @@ script = ExtResource("1_ja6wd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
+[node name="SpawnPositions" type="Node2D" parent="."]
+
 [node name="BaseSprite" type="Sprite2D" parent="."]
 
 [node name="LidSprite" type="Sprite2D" parent="."]
-
-[node name="SpawnPositions" type="Node2D" parent="."]
