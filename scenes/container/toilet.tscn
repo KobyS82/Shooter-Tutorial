@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ba21qvcj25opi" path="res://resources/graphics/objects/lid.png" id="4_ukrjw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k4x5y"]
-size = Vector2(238, 250)
+size = Vector2(188, 198)
 
 [node name="Toilet" instance=ExtResource("1_31188")]
 script = ExtResource("2_jhmoc")
@@ -15,10 +15,12 @@ script = ExtResource("2_jhmoc")
 shape = SubResource("RectangleShape2D_k4x5y")
 
 [node name="BaseSprite" parent="." index="1"]
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("2_aqlyw")
 
 [node name="LidSprite" parent="." index="2"]
 position = Vector2(0, 16)
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("4_ukrjw")
 
 [node name="Marker2D" type="Marker2D" parent="SpawnPositions" index="0"]

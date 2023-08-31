@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://4aavrfvh26v0"]
+[gd_scene load_steps=19 format=3 uid="uid://4aavrfvh26v0"]
 
 [ext_resource type="PackedScene" uid="uid://botrn4244urhs" path="res://scenes/levels/level.tscn" id="1_wf4cv"]
 [ext_resource type="Texture2D" uid="uid://bqykvsmciamqi" path="res://resources/graphics/ground/stones.png" id="2_a8a7m"]
@@ -14,8 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://nvlbhuf7yh0k" path="res://scenes/objects/steam_vent.tscn" id="10_3lejj"]
 [ext_resource type="PackedScene" uid="uid://ikrub3cf7k4v" path="res://scenes/objects/lignt_fan_animation.tscn" id="11_gtact"]
 [ext_resource type="PackedScene" uid="uid://cpgigofceb2iy" path="res://scenes/enemies/drone.tscn" id="13_sc6fl"]
-[ext_resource type="PackedScene" uid="uid://c12kgyaqk01sd" path="res://scenes/container/toilet.tscn" id="15_sc4ir"]
-[ext_resource type="PackedScene" uid="uid://c58aiud1mhmii" path="res://scenes/container/crate.tscn" id="16_uhin7"]
 [ext_resource type="PackedScene" uid="uid://b8karepy0v14l" path="res://scenes/items/item.tscn" id="17_r2cew"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uh3gi"]
@@ -106,26 +104,21 @@ frame_progress = 0.880135
 [node name="Gate" parent="." index="1" instance=ExtResource("2_ww8uc")]
 position = Vector2(702, -590)
 
-[node name="Crate" parent="." index="2" instance=ExtResource("16_uhin7")]
-position = Vector2(1141, 671)
-
-[node name="Toilet" parent="." index="3" instance=ExtResource("15_sc4ir")]
-position = Vector2(923, 929)
-rotation = 1.5708
-
-[node name="Player" parent="." index="6"]
+[node name="Player" parent="." index="4"]
 position = Vector2(750, 334)
 metadata/_edit_group_ = true
 
-[node name="Drone" parent="." index="7" instance=ExtResource("13_sc6fl")]
+[node name="Drone" parent="." index="5" instance=ExtResource("13_sc6fl")]
 position = Vector2(165, 962)
 
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." index="8"]
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." index="6"]
 color = Color(0.054902, 0.054902, 0.054902, 1)
 blend_mode = 1
 
-[node name="Item" parent="." index="10" instance=ExtResource("17_r2cew")]
+[node name="Item" parent="." index="8" instance=ExtResource("17_r2cew")]
 position = Vector2(305, 507)
 
 [connection signal="body_exited" from="Ground/House" to="Ground/House" method="_on_body_exited"]
+[connection signal="player_entered" from="Ground/House" to="." method="_on_house_player_entered"]
+[connection signal="player_left" from="Ground/House" to="." method="_on_house_player_left"]
 [connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
