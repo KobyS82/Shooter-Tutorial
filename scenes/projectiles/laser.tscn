@@ -5,19 +5,19 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ldxov"]
 radius = 6.0
-height = 110.0
+height = 88.0
 
 [node name="Laser" type="Area2D"]
 collision_layer = 8
-collision_mask = 14
+collision_mask = 15
 script = ExtResource("1_e4lf7")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, 24)
-texture = ExtResource("1_2nnew")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_ldxov")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, 36)
+texture = ExtResource("1_2nnew")
 
 [node name="LaserTimer" type="Timer" parent="."]
 wait_time = 2.0

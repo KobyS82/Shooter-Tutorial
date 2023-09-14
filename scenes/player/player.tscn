@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://x3pv567bt6hl" path="res://resources/graphics/decals/white.png" id="3_x0iyg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m4abt"]
-radius = 75.5381
+radius = 71.0634
 
 [sub_resource type="Gradient" id="Gradient_sh53d"]
 offsets = PackedFloat32Array(0.00369004, 0.527675)

@@ -16,7 +16,7 @@ func hit():
 		health -= 10
 	if health <= 0:
 		queue_free()
-	
+
 func _process(_delta):
 	
 	if player_nearby:

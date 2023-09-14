@@ -10,7 +10,7 @@ var can_grenade: bool = true
 var speed: int = max_speed
 
 func hit():
-	Globals.health -= .1
+	Globals.health -= 10
 
 func _process(_delta):
 	#Input

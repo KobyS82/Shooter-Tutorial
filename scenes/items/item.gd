@@ -15,7 +15,7 @@ func _ready():
 	if type == 'health':
 		$Sprite2D.modulate = Color(0.1, 0.8, 0.1)
 	
-	#Tweens
+	#Tweens for item movement
 	var target_pos = position + direction * distance
 	var tween = create_tween()
 	tween.set_parallel(true)
