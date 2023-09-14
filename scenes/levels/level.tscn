@@ -15,8 +15,7 @@ script = ExtResource("1_mhclo")
 
 [node name="Items" type="Node2D" parent="."]
 
-[node name="Projectiles" type="Node2D" parent="."]
-metadata/_edit_lock_ = true
+[node name="Enemies" type="Node2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("4_ktots")]
 position = Vector2(687, 698)
@@ -26,6 +25,9 @@ zoom = Vector2(0.6, 0.6)
 position_smoothing_enabled = true
 
 [node name="Lights" type="Node2D" parent="."]
+
+[node name="Projectiles" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="UI" parent="." instance=ExtResource("3_paaat")]
 

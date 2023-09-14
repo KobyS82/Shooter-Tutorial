@@ -15,6 +15,7 @@ func _process(_delta):
 	var direction = Input.get_vector("Left", "Right", "Up", "Down")
 	velocity = direction * speed
 	move_and_slide()
+	Globals.player_pos = global_position
 	
 	# Rotate 
 	look_at(get_global_mouse_position())

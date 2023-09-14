@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://4aavrfvh26v0"]
+[gd_scene load_steps=20 format=3 uid="uid://4aavrfvh26v0"]
 
 [ext_resource type="PackedScene" uid="uid://botrn4244urhs" path="res://scenes/levels/level.tscn" id="1_wf4cv"]
 [ext_resource type="Texture2D" uid="uid://bqykvsmciamqi" path="res://resources/graphics/ground/stones.png" id="2_a8a7m"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://nvlbhuf7yh0k" path="res://scenes/objects/steam_vent.tscn" id="10_3lejj"]
 [ext_resource type="PackedScene" uid="uid://ikrub3cf7k4v" path="res://scenes/objects/lignt_fan_animation.tscn" id="11_gtact"]
 [ext_resource type="PackedScene" uid="uid://cpgigofceb2iy" path="res://scenes/enemies/drone.tscn" id="13_sc6fl"]
+[ext_resource type="PackedScene" uid="uid://b1sknfmovwpsb" path="res://scenes/enemies/scout.tscn" id="16_4sphy"]
 [ext_resource type="PackedScene" uid="uid://b8karepy0v14l" path="res://scenes/items/item.tscn" id="17_r2cew"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uh3gi"]
@@ -53,9 +54,16 @@ sources/1 = SubResource("TileSetAtlasSource_ed8tx")
 [node name="Outside" instance=ExtResource("1_wf4cv")]
 script = ExtResource("2_bt435")
 
+[node name="Decals" parent="." index="0"]
+metadata/_edit_lock_ = true
+
 [node name="Gate" parent="." index="1" instance=ExtResource("2_ww8uc")]
 z_index = 1
-position = Vector2(702, -590)
+position = Vector2(686, -862)
+
+[node name="Ground" parent="." index="2"]
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="Soil" type="Sprite2D" parent="Ground" index="0"]
 texture_repeat = 2
@@ -105,20 +113,34 @@ position = Vector2(-135, 333)
 position = Vector2(-1612, 1444)
 frame_progress = 0.880135
 
+[node name="Infestation" parent="." index="3"]
+metadata/_edit_lock_ = true
+
+[node name="Items" parent="." index="4"]
+metadata/_edit_lock_ = true
+
 [node name="Drone" parent="." index="5" instance=ExtResource("13_sc6fl")]
 position = Vector2(165, 962)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="." index="6"]
 color = Color(0.054902, 0.054902, 0.054902, 1)
 blend_mode = 1
+metadata/_edit_lock_ = true
 
-[node name="Player" parent="." index="7"]
+[node name="Item" parent="." index="8" instance=ExtResource("17_r2cew")]
+position = Vector2(305, 507)
+metadata/_edit_lock_ = true
+
+[node name="Scout" parent="Enemies" index="0" instance=ExtResource("16_4sphy")]
+position = Vector2(860, 592)
+
+[node name="Player" parent="." index="10"]
 z_index = 2
 position = Vector2(750, 334)
 metadata/_edit_group_ = true
 
-[node name="Item" parent="." index="8" instance=ExtResource("17_r2cew")]
-position = Vector2(305, 507)
+[node name="Lights" parent="." index="11"]
+metadata/_edit_lock_ = true
 
 [connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
 [connection signal="body_exited" from="Ground/House" to="Ground/House" method="_on_body_exited"]
