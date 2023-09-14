@@ -127,19 +127,19 @@ color = Color(0.054902, 0.054902, 0.054902, 1)
 blend_mode = 1
 metadata/_edit_lock_ = true
 
+[node name="Scout" parent="Enemies" index="0" instance=ExtResource("16_4sphy")]
+position = Vector2(860, 592)
+
 [node name="Item" parent="." index="8" instance=ExtResource("17_r2cew")]
 position = Vector2(305, 507)
 metadata/_edit_lock_ = true
 
-[node name="Scout" parent="Enemies" index="0" instance=ExtResource("16_4sphy")]
-position = Vector2(860, 592)
-
-[node name="Player" parent="." index="10"]
+[node name="Player" parent="." index="9"]
 z_index = 2
 position = Vector2(750, 334)
 metadata/_edit_group_ = true
 
-[node name="Lights" parent="." index="11"]
+[node name="Lights" parent="." index="10"]
 metadata/_edit_lock_ = true
 
 [connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
