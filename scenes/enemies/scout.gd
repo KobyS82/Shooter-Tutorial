@@ -6,6 +6,9 @@ var right_gun: bool = true
 
 signal laser(pos, direction)
 
+func hit():
+	queue_free()
+
 func _process(_delta):
 	
 	if player_nearby:
