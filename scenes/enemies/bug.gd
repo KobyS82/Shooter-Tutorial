@@ -18,6 +18,7 @@ func hit():
 	if health <= 0:
 		queue_free()
 
+
 func _process(_delta):
 	if player_nearby and can_attack:
 		look_at(Globals.player_pos)
