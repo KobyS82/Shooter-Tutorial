@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://4aavrfvh26v0"]
+[gd_scene load_steps=21 format=3 uid="uid://4aavrfvh26v0"]
 
 [ext_resource type="PackedScene" uid="uid://botrn4244urhs" path="res://scenes/levels/level.tscn" id="1_wf4cv"]
 [ext_resource type="Texture2D" uid="uid://bqykvsmciamqi" path="res://resources/graphics/ground/stones.png" id="2_a8a7m"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://cpgigofceb2iy" path="res://scenes/enemies/drone.tscn" id="13_sc6fl"]
 [ext_resource type="PackedScene" uid="uid://b1sknfmovwpsb" path="res://scenes/enemies/scout.tscn" id="16_4sphy"]
 [ext_resource type="PackedScene" uid="uid://b8karepy0v14l" path="res://scenes/items/item.tscn" id="17_r2cew"]
+[ext_resource type="PackedScene" uid="uid://gnjhfm1ve68j" path="res://scenes/enemies/bug.tscn" id="17_v5ht5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uh3gi"]
 resource_name = "walls"
@@ -141,6 +142,9 @@ metadata/_edit_group_ = true
 
 [node name="Lights" parent="." index="10"]
 metadata/_edit_lock_ = true
+
+[node name="Bug" parent="." index="13" instance=ExtResource("17_v5ht5")]
+position = Vector2(1088, 158)
 
 [connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
 [connection signal="body_exited" from="Ground/House" to="Ground/House" method="_on_body_exited"]

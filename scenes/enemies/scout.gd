@@ -11,14 +11,14 @@ signal laser(pos, direction)
 
 func hit():
 	if damageable:
+		health -= 10
 		damageable = false
 		$Timers/DamageTimer.start()
-		health -= 10
+		$Sprite2D.material.set_shader_parameter("progress", 1)
 	if health <= 0:
 		queue_free()
 
 func _process(_delta):
-	
 	if player_nearby:
 		look_at(Globals.player_pos)
 		if can_laser:
@@ -43,6 +43,7 @@ func _on_laser_timer_timeout():
 
 
 func _on_damage_timer_timeout():
+	$Sprite2D.material.set_shader_parameter("progress", 0)
 	damageable = true
 
 
