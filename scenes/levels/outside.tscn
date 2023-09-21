@@ -121,7 +121,7 @@ metadata/_edit_lock_ = true
 metadata/_edit_lock_ = true
 
 [node name="Drone" parent="." index="5" instance=ExtResource("13_sc6fl")]
-position = Vector2(165, 962)
+position = Vector2(81, 978)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="." index="6"]
 color = Color(0.054902, 0.054902, 0.054902, 1)
@@ -129,7 +129,7 @@ blend_mode = 1
 metadata/_edit_lock_ = true
 
 [node name="Scout" parent="Enemies" index="0" instance=ExtResource("16_4sphy")]
-position = Vector2(860, 592)
+position = Vector2(2000, 1200)
 
 [node name="Item" parent="." index="8" instance=ExtResource("17_r2cew")]
 position = Vector2(305, 507)
@@ -144,7 +144,7 @@ metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
 [node name="Bug" parent="." index="13" instance=ExtResource("17_v5ht5")]
-position = Vector2(1088, 158)
+position = Vector2(2127, 171)
 
 [connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
 [connection signal="body_exited" from="Ground/House" to="Ground/House" method="_on_body_exited"]
