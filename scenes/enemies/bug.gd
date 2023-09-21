@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 var active: bool = false
 var player_near: bool = false
-var can_attack: bool = true
 var damageable: bool = true
 
 var health: int = 20
@@ -50,9 +49,12 @@ func _on_damage_timer_timeout():
 	$AnimatedSprite2D.material.set_shader_parameter("progress", 0)
 
 func _on_attack_timer_timeout():
-	$AnimatedSprite2D.play("attack")
+	if player_near:
+		$AnimatedSprite2D.play("attack")
+	
 
 func _on_animated_sprite_2d_animation_finished():
 	if player_near:
 		Globals.health -= 10
 		$Timers/AttackTimer.start()
+	$AnimatedSprite2D.play("walk")
