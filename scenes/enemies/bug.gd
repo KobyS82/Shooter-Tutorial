@@ -5,7 +5,7 @@ var player_near: bool = false
 var can_attack: bool = true
 var damageable: bool = true
 
-var health: int = 100
+var health: int = 20
 
 @onready var speed: int = 200
 
@@ -15,7 +15,9 @@ func hit():
 		damageable = false
 		$Timers/DamageTimer.start()
 		$AnimatedSprite2D.material.set_shader_parameter("progress", 1)
+		$Particles/DamageParticles.emitting = true
 	if health <= 0:
+		await get_tree().create_timer(0.5).timeout
 		queue_free()
 
 
@@ -27,7 +29,8 @@ func _process(_delta):
 		move_and_slide()
 
 
-func _on_notice_area_2d_body_entered(_body):
+func _on_notice_area_2d_body_entered(body):
+	print(body)
 	active = true
 	$AnimatedSprite2D.play("walk")
 

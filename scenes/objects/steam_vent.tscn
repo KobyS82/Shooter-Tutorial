@@ -26,6 +26,8 @@ color = Color(1, 1, 1, 0.219608)
 color_ramp = SubResource("GradientTexture1D_kqit6")
 
 [node name="SteamVent" type="StaticBody2D"]
+collision_layer = 4
+collision_mask = 11
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_112ka")

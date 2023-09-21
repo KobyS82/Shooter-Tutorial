@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://gnjhfm1ve68j"]
+[gd_scene load_steps=43 format=3 uid="uid://gnjhfm1ve68j"]
 
 [ext_resource type="Texture2D" uid="uid://cn2dh1530cvjc" path="res://resources/graphics/enemies/bug/attack/00010.png" id="1_3k3l6"]
 [ext_resource type="Script" path="res://scenes/enemies/bug.gd" id="1_atgm6"]
@@ -32,6 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://b8tordvwy3qma" path="res://resources/graphics/enemies/bug/walk/00006.png" id="28_yfh17"]
 [ext_resource type="Texture2D" uid="uid://cbr8o02arn02i" path="res://resources/graphics/enemies/bug/walk/00007.png" id="29_u46wx"]
 [ext_resource type="Texture2D" uid="uid://bccyajgt2gwwk" path="res://resources/graphics/enemies/bug/walk/00008.png" id="30_vfeb5"]
+[ext_resource type="Texture2D" uid="uid://bis31u2hkaasw" path="res://resources/graphics/explosions/grunge.png" id="33_5ixpv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_b816x"]
 shader = ExtResource("2_py2in")
@@ -151,6 +152,35 @@ radius = 5728.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_edsrs"]
 radius = 1624.18
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_pxwgm"]
+particles_animation = true
+particles_anim_h_frames = 6
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_w2l2g"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.2), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_u2r3p"]
+curve = SubResource("Curve_w2l2g")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_u4442"]
+emission_shape = 1
+emission_sphere_radius = 4.35
+particle_flag_disable_z = true
+direction = Vector3(1, 1, 0)
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 1500.0
+initial_velocity_max = 2500.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 0.5
+scale_max = 0.8
+scale_curve = SubResource("CurveTexture_u2r3p")
+anim_offset_max = 1.0
+
 [node name="Bug" type="CharacterBody2D" groups=["Entity"]]
 scale = Vector2(0.125, 0.125)
 collision_layer = 2
@@ -189,6 +219,21 @@ one_shot = true
 [node name="DamageTimer" type="Timer" parent="Timers"]
 wait_time = 0.5
 one_shot = true
+
+[node name="Particles" type="Node2D" parent="."]
+
+[node name="DamageParticles" type="GPUParticles2D" parent="Particles"]
+modulate = Color(0.0862745, 0.145098, 0.113725, 1)
+material = SubResource("CanvasItemMaterial_pxwgm")
+scale = Vector2(0.979592, 0.987182)
+emitting = false
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_u4442")
+texture = ExtResource("33_5ixpv")
+lifetime = 0.5
+one_shot = true
+
+[node name="DeathParticles" type="GPUParticles2D" parent="Particles"]
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="NoticeArea2D" to="." method="_on_notice_area_2d_body_entered"]
