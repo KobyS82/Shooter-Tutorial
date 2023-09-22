@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cpgigofceb2iy"]
+[gd_scene load_steps=12 format=3 uid="uid://cpgigofceb2iy"]
 
 [ext_resource type="Script" path="res://scenes/enemies/drone.gd" id="1_07thv"]
 [ext_resource type="Texture2D" uid="uid://cmn4b41j2pfc" path="res://resources/graphics/enemies/drone.png" id="2_gido7"]
@@ -15,6 +15,9 @@ shader_parameter/progress = 0.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ei722"]
 radius = 1282.53
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_id835"]
+radius = 180.1
 
 [sub_resource type="Animation" id="Animation_4lw1p"]
 resource_name = "explosion"
@@ -100,6 +103,7 @@ script = ExtResource("1_07thv")
 shape = SubResource("CircleShape2D_cw5pj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 material = SubResource("ShaderMaterial_hhajf")
 rotation = 1.5708
 texture = ExtResource("2_gido7")
@@ -109,8 +113,10 @@ texture = ExtResource("2_gido7")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NoticeArea"]
 shape = SubResource("CircleShape2D_ei722")
 
-[node name="DamageTimer" type="Timer" parent="."]
-wait_time = 0.2
+[node name="ExplosionArea2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExplosionArea2D"]
+shape = SubResource("CircleShape2D_id835")
 
 [node name="Explosion" type="Sprite2D" parent="."]
 texture = ExtResource("4_0n6ue")
@@ -123,5 +129,15 @@ libraries = {
 "": SubResource("AnimationLibrary_v1ok1")
 }
 
+[node name="Node" type="Node" parent="."]
+
+[node name="DamageTimer" type="Timer" parent="Node"]
+wait_time = 0.2
+
+[node name="Timer" type="Timer" parent="Node"]
+
 [connection signal="body_entered" from="NoticeArea" to="." method="_on_notice_area_body_entered"]
-[connection signal="timeout" from="DamageTimer" to="." method="_on_damage_timer_timeout"]
+[connection signal="body_entered" from="ExplosionArea2D" to="." method="_on_explosion_area_2d_body_entered"]
+[connection signal="body_exited" from="ExplosionArea2D" to="." method="_on_explosion_area_2d_body_exited"]
+[connection signal="animation_started" from="AnimationPlayer" to="." method="_on_animation_player_animation_started"]
+[connection signal="timeout" from="Node/DamageTimer" to="." method="_on_damage_timer_timeout"]
