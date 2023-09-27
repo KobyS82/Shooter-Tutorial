@@ -1,12 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://b5t3rxq3wrmhb"]
+[gd_scene load_steps=5 format=3 uid="uid://b5t3rxq3wrmhb"]
 
 [ext_resource type="Script" path="res://scenes/car.gd" id="1_2jm02"]
 [ext_resource type="Texture2D" uid="uid://dprd3g4gw1i64" path="res://resources/graphics/car/main.png" id="1_qdmcn"]
+[ext_resource type="Texture2D" uid="uid://bo3dnqeordm6x" path="res://resources/graphics/car/turret.png" id="3_pxe2q"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_da41m"]
+radius = 625.353
 
 [node name="Car" type="PathFollow2D"]
 script = ExtResource("1_2jm02")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+collision_layer = 2
+collision_mask = 11
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CharacterBody2D"]
 polygon = PackedVector2Array(-232, -176, -99, -184, -33, -139, 17, -177, 122, -177, 145, -172, 180, -122, 193, -72, 195, 82, 180, 130, 139, 170, 108, 175, -3, 170, -14, 132, -69, 131, -94, 176, -165, 189, -237, 173, -236, 105, -241, 56, -307, 43, -304, -48, -240, -58)
@@ -14,3 +20,18 @@ polygon = PackedVector2Array(-232, -176, -99, -184, -33, -139, 17, -177, 122, -1
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5708
 texture = ExtResource("1_qdmcn")
+
+[node name="Turret" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Turret"]
+rotation = 1.5708
+texture = ExtResource("3_pxe2q")
+
+[node name="NoticeArea" type="Area2D" parent="."]
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NoticeArea"]
+shape = SubResource("CircleShape2D_da41m")
+
+[connection signal="body_entered" from="NoticeArea" to="." method="_on_notice_area_body_entered"]
+[connection signal="body_exited" from="NoticeArea" to="." method="_on_notice_area_body_exited"]
