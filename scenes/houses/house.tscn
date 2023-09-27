@@ -6,14 +6,14 @@
 [ext_resource type="PackedScene" uid="uid://bjsndr6bthufo" path="res://scenes/objects/wall_lamp.tscn" id="3_kdq4y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_atbie"]
-size = Vector2(4454, 4056)
+size = Vector2(4160, 3871)
 
 [node name="House" type="Area2D"]
 collision_layer = 16
 script = ExtResource("1_8w3w7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(8, -189)
+position = Vector2(-2, -127.5)
 shape = SubResource("RectangleShape2D_atbie")
 
 [node name="TileMap" type="TileMap" parent="."]
