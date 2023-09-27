@@ -153,9 +153,9 @@ position = Vector2(13, -63)
 curve = SubResource("Curve2D_rwip3")
 
 [node name="Car" parent="CarPath" index="0" instance=ExtResource("17_2704b")]
-position = Vector2(4373.4, 4888.19)
-rotation = -3.07501
-progress = 17638.3
+position = Vector2(613.149, 3641.37)
+rotation = -2.39172
+progress = 21730.4
 
 [connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
 [connection signal="body_exited" from="Ground/House" to="Ground/House" method="_on_body_exited"]
